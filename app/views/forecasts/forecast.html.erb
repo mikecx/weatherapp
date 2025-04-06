@@ -1,0 +1,16 @@
+<div>
+  <h1 class="font-bold text-4xl mb-8">Forecast</h1>
+  <% if @forecast[:error].present? %>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <strong class="font-bold">Error:</strong>
+      <span class="block sm:inline"><%= @forecast[:error] %></span>
+    </div>
+  <% else %>
+    <div class="mb-4">Address: <%= @address %></div>
+    <div class="mb-4">Temperature: <%= @forecast[:temperature].round(2) %> °F</div>
+    <div class="mb-4">Wind speed: <%= @forecast[:wind_speed].round(2) %> mph</div>
+    <div class="mb-4">Cached: <%= @cached ? 'True' : 'False' %></div>
+  <% end %>
+
+  <%= link_to "Get another forecast", forecasts_path, class: 'text-blue-500 hover:text-blue-800' %>
+</div>

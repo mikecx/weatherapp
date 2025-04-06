@@ -1,0 +1,28 @@
+<div>
+  <h1 class="font-bold text-4xl mb-8">Weather forecast</h1>
+  <address class="w-full min-w-sm max-w-md">
+    <%= form_with url: forecast_forecasts_path, method: :get, local: true, data: { turbo: false },  class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", autocomplete: "on" do |form| %>
+      <div class="mb-4">
+        <%= form.label :street_address, "Street address", class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :street_address, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Street address", autocomplete: "street-address", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :city, "City", class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :city, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "City", autocomplete: "address-level2", required: true %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :state, "State", class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :state, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "State", autocomplete: "address-level1", required: true %>
+      </div>
+
+      <div class="mb-6">
+        <%= form.label :postal_code, "Postal code", class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :postal_code, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Postal code", autocomplete: "postal-code", required: true %>
+      </div>
+
+      <%= form.submit "Get forecast", class: "bg-blue-500 text-white p-2 rounded w-full" %>
+    <% end %>
+  </address>
+</div>
