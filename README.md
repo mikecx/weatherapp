@@ -30,6 +30,7 @@ google:
     geocode_api_key: <YOUR_API_KEY>
 ```
 
+To edit your credentials, you can use the following command:
 ```bash
   bin/rails credentials:edit
 ```
